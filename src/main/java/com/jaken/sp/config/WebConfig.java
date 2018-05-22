@@ -7,6 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -25,6 +27,13 @@ public class WebConfig extends WebMvcConfigurerAdapter{
 		irv.setPrefix("/WEB-INF/pages/");
 		irv.setSuffix(".jsp");
 		return irv;
+	}
+	
+	@Bean(name="multipartResolver")
+	public MultipartResolver getMultiPartResolver(){
+		CommonsMultipartResolver cmr=new CommonsMultipartResolver();
+		cmr.setMaxUploadSizePerFile(20000000);
+		return cmr;
 	}
 
 	
