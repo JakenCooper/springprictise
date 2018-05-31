@@ -17,4 +17,8 @@ public class UserService {
 	public void save(User user){
 		userDao.save(user);
 	}
+	
+	public int count(User user){
+		return userDao.countUser(user);
+	} 
 }
