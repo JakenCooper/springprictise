@@ -6,7 +6,7 @@ public class SpConfig extends AbstractAnnotationConfigDispatcherServletInitializ
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class[] {RootConfig.class};
+		return new Class[] {RootConfig.class,ShiroConfig.class};
 	}
 
 	@Override

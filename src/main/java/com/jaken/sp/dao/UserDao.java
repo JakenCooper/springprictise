@@ -8,4 +8,6 @@ import com.jaken.sp.entity.User;
 public interface UserDao {
 
 	public void save(User user);
+	
+	public int countUser(User user);
 }

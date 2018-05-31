@@ -9,10 +9,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id property="id" column="id"/>
 		<result property="userName" column="name"/>
 		<result property="age" column="age"/>
+		<result property="password" column="password"/>
+		<result property="createTime" column="create_time" javaType="java.util.Date"/>
+		<result property="lastLoginTime" column="last_login_time" javaType="java.util.Date"/>
 	</resultMap>
 	
 	<insert id="save">
 		insert into t_user(id,name,age) values(#{id},#{userName},#{age})
 	</insert>
 
+	<select id="countUser" resultMap="baseResultMap">
+		select * from t_user where name=#{userName} and password=#{password}
+	</select>
 </mapper>
